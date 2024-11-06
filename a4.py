@@ -11,7 +11,7 @@ class TTTBoard:
     """
     def __init__(self):
         self.board = ['*', '*', '*','*','*','*','*','*','*']
-
+        # you can also do self.board = ["*"] * 9
     def __str__(self):
         str = ""
         for i, val in enumerate(self.board):
@@ -46,9 +46,7 @@ class TTTBoard:
                 return True
         return False
     def game_over(self):
-        if self.has_won('X') or self.has_won('O'):
-            return True
-        if not '*' in self.board:
+        if self.has_won('X') or self.has_won('O') or "*" not in self.board:
             return True
         return False
     def clear(self):
@@ -104,32 +102,32 @@ if __name__ == "__main__":
     # properly.
     brd = TTTBoard()
     print(brd)
-    # brd.make_move("X", 8)
-    # brd.make_move("O", 7)
+    brd.make_move("X", 8)
+    brd.make_move("O", 7)
 
-    # assert brd.game_over() == False
+    assert brd.game_over() == False
 
-    # brd.make_move("X", 5)
-    # brd.make_move("O", 6)
-    # brd.make_move("X", 2)
+    brd.make_move("X", 5)
+    brd.make_move("O", 6)
+    brd.make_move("X", 2)
 
-    # assert brd.has_won("X") == True
-    # assert brd.has_won("O") == False
-    # assert brd.game_over() == True
+    assert brd.has_won("X") == True
+    assert brd.has_won("O") == False
+    assert brd.game_over() == True
 
-    # brd.clear()
+    brd.clear()
 
-    # assert brd.game_over() == False
+    assert brd.game_over() == False
 
-    # brd.make_move("O", 3)
-    # brd.make_move("O", 4)
-    # brd.make_move("O", 5)
+    brd.make_move("O", 3)
+    brd.make_move("O", 4)
+    brd.make_move("O", 5)
 
-    # assert brd.has_won("X") == False
-    # assert brd.has_won("O") == True
-    # assert brd.game_over() == True
+    assert brd.has_won("X") == False
+    assert brd.has_won("O") == True
+    assert brd.game_over() == True
 
-    # print("All tests passed!")
+    print("All tests passed!")
 
     # uncomment to play!
     # play_tic_tac_toe()
